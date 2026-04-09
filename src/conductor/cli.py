@@ -152,6 +152,155 @@ def retro(project_path: str):
             click.echo(f"   → {rule}")
 
 
+@main.group()
+def memory():
+    """Manage project memory — persistent cross-session knowledge.
+
+    Store facts, decisions, and lessons that persist across sessions.
+    """
+    pass
+
+
+@memory.command("add")
+@click.argument("content")
+@click.option(
+    "--type", "-t", "mem_type",
+    default="fact",
+    type=click.Choice(["fact", "decision", "lesson", "preference", "context"]),
+    help="Type of memory",
+)
+@click.option("--tag", "-g", multiple=True, help="Tags for this memory")
+@click.option("--project", "-p", "project_path", default=".", help="Project path")
+def memory_add(content: str, mem_type: str, tag: tuple, project_path: str):
+    """Add a memory to the project store."""
+    from pathlib import Path
+    from conductor.memory import load_memory, save_memory
+
+    project = Path(project_path).expanduser().resolve()
+    store = load_memory(project)
+    entry = store.add(content, mem_type, tags=list(tag))
+    save_memory(store, project)
+
+    click.echo(f"✅ Memory #{entry.id} added ({mem_type})")
+
+
+@memory.command("search")
+@click.argument("query")
+@click.option("--project", "-p", "project_path", default=".", help="Project path")
+def memory_search(query: str, project_path: str):
+    """Search project memories."""
+    from pathlib import Path
+    from rich.console import Console
+    from rich.table import Table
+    from conductor.memory import load_memory, save_memory
+
+    project = Path(project_path).expanduser().resolve()
+    store = load_memory(project)
+    results = store.search(query)
+    save_memory(store, project)  # Save updated access counts
+
+    if not results:
+        click.echo(f"No memories matching '{query}'")
+        return
+
+    console = Console()
+    table = Table(title=f"🔍 Memories matching '{query}'", border_style="cyan")
+    table.add_column("ID", style="dim", width=4)
+    table.add_column("Type", width=10)
+    table.add_column("Content", ratio=1)
+    table.add_column("Tags", style="dim", width=15)
+
+    for entry in results:
+        tags = ", ".join(entry.tags) if entry.tags else "—"
+        table.add_row(str(entry.id), entry.type, entry.content, tags)
+
+    console.print(table)
+
+
+@memory.command("list")
+@click.option("--type", "-t", "mem_type", default=None, help="Filter by type")
+@click.option("--recent", "-r", "show_recent", is_flag=True, help="Show recent")
+@click.option("--project", "-p", "project_path", default=".", help="Project path")
+def memory_list(mem_type: str, show_recent: bool, project_path: str):
+    """List all memories in the project store."""
+    from pathlib import Path
+    from rich.console import Console
+    from rich.table import Table
+    from conductor.memory import load_memory
+
+    project = Path(project_path).expanduser().resolve()
+    store = load_memory(project)
+
+    if mem_type:
+        entries = store.get_by_type(mem_type)
+        title = f"📝 {mem_type.title()} Memories"
+    elif show_recent:
+        entries = store.get_recent(15)
+        title = "⏰ Recent Memories"
+    else:
+        entries = store.entries
+        title = f"📝 All Memories ({len(entries)} total)"
+
+    if not entries:
+        click.echo("No memories stored yet. Use 'conductor memory add' to create one.")
+        return
+
+    console = Console()
+    table = Table(title=title, border_style="cyan")
+    table.add_column("ID", style="dim", width=4)
+    table.add_column("Type", width=10)
+    table.add_column("Content", ratio=1)
+    table.add_column("Tags", style="dim", width=15)
+    table.add_column("Created", style="dim", width=12)
+
+    for entry in entries:
+        tags = ", ".join(entry.tags) if entry.tags else "—"
+        created = entry.created[:10] if entry.created else "—"
+        table.add_row(str(entry.id), entry.type, entry.content, tags, created)
+
+    console.print(table)
+
+    stats = store.stats()
+    click.echo(f"\n  📊 {stats['total']} memories │ {stats['total_tags']} tags")
+
+
+@memory.command("export")
+@click.option("--project", "-p", "project_path", default=".", help="Project path")
+def memory_export(project_path: str):
+    """Export memories as markdown for agent context injection."""
+    from pathlib import Path
+    from conductor.memory import load_memory, export_memory_markdown
+
+    project = Path(project_path).expanduser().resolve()
+    store = load_memory(project)
+
+    if not store.entries:
+        click.echo("No memories to export.")
+        return
+
+    md = export_memory_markdown(store)
+    click.echo(md)
+
+
+@memory.command("extract")
+@click.option("--project", "-p", "project_path", default=".", help="Project path")
+def memory_extract(project_path: str):
+    """Auto-extract memories from HANDOFF.md."""
+    from pathlib import Path
+    from conductor.memory import auto_extract_memories
+
+    project = Path(project_path).expanduser().resolve()
+    new_entries = auto_extract_memories(project)
+
+    if not new_entries:
+        click.echo("No new memories extracted (all already stored or none found).")
+        return
+
+    click.echo(f"✅ Extracted {len(new_entries)} new memories:")
+    for entry in new_entries:
+        click.echo(f"   #{entry.id} [{entry.type}] {entry.content[:60]}")
+
+
 @main.command()
 @click.argument("project_path", default=".")
 def init(project_path: str):

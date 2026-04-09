@@ -106,6 +106,32 @@ $ conductor status
  📅 2026-04-09 │ 4 projects │ 5 decisions │ 12 files Δ
 ```
 
+```bash
+$ conductor digest ./my-project
+
+🎵 Conductor · Project Digest
+  📁 my-project  │  📅 2026-04-01 → 2026-04-09  │  🔄 5 sessions
+
+  📋 Decisions Made
+  ┌────────────┬──────────────────────────────┐
+  │ 2026-04-09 │ Chose JWT over sessions      │
+  │ 2026-04-08 │ Python 3.9+ compatibility    │
+  └────────────┴──────────────────────────────┘
+
+  ⚠️ Errors & Pitfalls
+  ┌────────────┬──────────────────────────────┐
+  │ 2026-04-09 │ bcrypt 5.x broke hashes      │
+  └────────────┴──────────────────────────────┘
+```
+
+```bash
+$ conductor memory add "Uses FastAPI + PostgreSQL" -t fact -g backend
+✅ Memory #1 added (fact)
+
+$ conductor memory search "FastAPI"
+🔍 matches: #1 [fact] Uses FastAPI + PostgreSQL
+```
+
 ## Quick Start
 
 ### Option A: Just use the templates (no install needed)
@@ -177,9 +203,9 @@ Not every task needs a full planning cycle:
 ## Roadmap
 
 - [x] v0.1 — Methodology docs + templates + `conductor status`
-- [ ] v0.2 — `conductor digest` — extract decisions/errors from conversation logs
-- [ ] v0.3 — Agent Retrospective — structured post-session review
-- [ ] v0.4 — Memory system — persistent cross-session knowledge store
+- [x] v0.2 — `conductor digest` — extract decisions/errors from project history
+- [x] v0.3 — `conductor retro` — interactive post-session agent review
+- [x] v0.4 — `conductor memory` — persistent cross-session knowledge store
 
 ## Philosophy
 

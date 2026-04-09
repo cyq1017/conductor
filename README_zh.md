@@ -191,9 +191,9 @@ conductor status
 ## 路线图
 
 - [x] v0.1 — 方法论 + 模板 + `conductor status`
-- [ ] v0.2 — `conductor digest` — 从对话日志自动提取决策/错误
-- [ ] v0.3 — Agent Retrospective — 结构化的 session 后复盘
-- [ ] v0.4 — 记忆系统 — 跨 session 的持久化知识库
+- [x] v0.2 — `conductor digest` — 从项目历史中提取决策/错误
+- [x] v0.3 — `conductor retro` — 交互式 session 后 agent 复盘
+- [x] v0.4 — `conductor memory` — 跨 session 持久化知识库
 
 ---
 
