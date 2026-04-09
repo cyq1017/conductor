@@ -55,6 +55,67 @@ def status(scan_dir: str, stale_hours: int):
 
 @main.command()
 @click.argument("project_path", default=".")
+@click.option(
+    "--json",
+    "output_json",
+    is_flag=True,
+    default=False,
+    help="Output as JSON instead of TUI",
+)
+def digest(project_path: str, output_json: bool):
+    """Extract decisions, errors, and patterns from a project.
+
+    Scans HANDOFF.md, ERROR_BOOK.md, and devlog.md to produce
+    a structured summary of what happened across sessions.
+    """
+    import json
+    from pathlib import Path
+    from conductor.digest import digest_project
+    from conductor.digest_display import render_digest
+
+    project = Path(project_path).expanduser().resolve()
+
+    if not project.exists():
+        click.echo(f"Error: {project} does not exist.")
+        return
+
+    handoff = project / "HANDOFF.md"
+    if not handoff.exists():
+        click.echo(f"No HANDOFF.md found in {project.name}")
+        click.echo("Run 'conductor init' first.")
+        return
+
+    result = digest_project(project)
+
+    if output_json:
+        data = {
+            "project": result.project_name,
+            "sessions": result.sessions_count,
+            "date_range": result.date_range,
+            "decisions": [
+                {"date": e.date, "content": e.content, "source": e.source_file}
+                for e in result.decisions
+            ],
+            "errors": [
+                {"date": e.date, "content": e.content, "source": e.source_file}
+                for e in result.errors
+            ],
+            "completed": [
+                {"date": e.date, "content": e.content}
+                for e in result.completed
+            ],
+            "next_steps": [
+                {"date": e.date, "content": e.content}
+                for e in result.next_steps
+            ],
+        }
+        click.echo(json.dumps(data, indent=2, ensure_ascii=False))
+    else:
+        render_digest(result)
+
+
+@main.command()
+@click.argument("project_path", default=".")
 def init(project_path: str):
     """Initialize Conductor in a project directory.
 
@@ -109,3 +170,4 @@ def init(project_path: str):
 
 if __name__ == "__main__":
     main()
+
