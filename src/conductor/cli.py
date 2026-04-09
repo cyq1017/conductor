@@ -116,6 +116,44 @@ def digest(project_path: str, output_json: bool):
 
 @main.command()
 @click.argument("project_path", default=".")
+def retro(project_path: str):
+    """Run an interactive Agent Retrospective.
+
+    Guides you through evaluating your AI agent's performance,
+    then automatically updates ERROR_BOOK.md and TRUST_PROFILE.md.
+    """
+    from pathlib import Path
+    from conductor.retro import run_interactive_retro, save_retro
+
+    project = Path(project_path).expanduser().resolve()
+
+    if not project.exists():
+        click.echo(f"Error: {project} does not exist.")
+        return
+
+    entry = run_interactive_retro(project)
+
+    if entry is None:
+        click.echo("Retro cancelled.")
+        return
+
+    results = save_retro(entry, project)
+
+    click.echo()
+    for filename, success in results.items():
+        if success:
+            click.echo(f"  ✅ Updated docs/{filename}")
+
+    click.echo(f"\n🎵 Retrospective saved for {project.name}!")
+
+    if entry.new_rules:
+        click.echo("\n📜 Don't forget to add these rules to your CLAUDE.md:")
+        for rule in entry.new_rules:
+            click.echo(f"   → {rule}")
+
+
+@main.command()
+@click.argument("project_path", default=".")
 def init(project_path: str):
     """Initialize Conductor in a project directory.
 
