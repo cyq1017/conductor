@@ -32,19 +32,22 @@
 
 <table>
 <tr>
+<td align="center"><b>⌨️ CLI</b></td>
 <td align="center"><b>Claude Code</b><br/>Anthropic</td>
-<td align="center"><b>Cursor</b><br/>AI IDE</td>
-<td align="center"><b>GitHub Copilot</b><br/>Chat</td>
 <td align="center"><b>Codex CLI</b><br/>OpenAI</td>
+<td align="center"><b>Gemini CLI</b><br/>Google</td>
+<td align="center"><b>Aider</b><br/>开源</td>
 </tr>
 <tr>
+<td align="center"><b>🖥️ IDE</b></td>
+<td align="center"><b>Cursor</b><br/>AI IDE</td>
 <td align="center"><b>Windsurf</b><br/>Codeium</td>
 <td align="center"><b>Antigravity</b><br/>Google DeepMind</td>
-<td align="center"><b>Gemini CLI</b><br/>Google</td>
-<td align="center"><b>Kimi Code</b><br/>Moonshot AI</td>
+<td align="center"><b>GitHub Copilot</b><br/>Chat</td>
 </tr>
 <tr>
-<td align="center"><b>Aider</b><br/>开源 CLI</td>
+<td></td>
+<td align="center"><b>Kimi Code</b><br/>Moonshot AI</td>
 <td align="center"><b>Continue</b><br/>开源插件</td>
 <td align="center" colspan="2"><i>+ 任何能读写文件的工具</i></td>
 </tr>

@@ -19,20 +19,23 @@ Structured handoff · Trust calibration · Continuous improvement
 
 <table>
 <tr>
+<td align="center"><b>⌨️ CLI</b></td>
 <td align="center"><b>Claude Code</b><br/>Anthropic</td>
-<td align="center"><b>Cursor</b><br/>AI IDE</td>
-<td align="center"><b>GitHub Copilot</b><br/>Chat</td>
 <td align="center"><b>Codex CLI</b><br/>OpenAI</td>
+<td align="center"><b>Gemini CLI</b><br/>Google</td>
+<td align="center"><b>Aider</b><br/>Open Source</td>
 </tr>
 <tr>
+<td align="center"><b>🖥️ IDE</b></td>
+<td align="center"><b>Cursor</b><br/>AI IDE</td>
 <td align="center"><b>Windsurf</b><br/>Codeium</td>
 <td align="center"><b>Antigravity</b><br/>Google DeepMind</td>
-<td align="center"><b>Gemini CLI</b><br/>Google</td>
-<td align="center"><b>Kimi Code</b><br/>Moonshot AI</td>
+<td align="center"><b>GitHub Copilot</b><br/>Chat</td>
 </tr>
 <tr>
-<td align="center"><b>Aider</b><br/>Open Source CLI</td>
-<td align="center"><b>Continue</b><br/>Open Source Plugin</td>
+<td></td>
+<td align="center"><b>Kimi Code</b><br/>Moonshot AI</td>
+<td align="center"><b>Continue</b><br/>Open Source</td>
 <td align="center" colspan="2"><i>+ any tool that reads/writes files</i></td>
 </tr>
 </table>
