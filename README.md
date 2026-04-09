@@ -35,8 +35,9 @@ Structured handoff · Trust calibration · Continuous improvement
 <tr>
 <td></td>
 <td align="center"><b>Aider</b><br/>Open Source</td>
+<td align="center"><b>OpenCode</b><br/>Open Source</td>
 <td align="center"><b>Continue</b><br/>Open Source</td>
-<td align="center" colspan="2"><i>+ any tool that reads/writes files</i></td>
+<td align="center"><i>+ any tool that<br/>reads/writes files</i></td>
 </tr>
 </table>
 

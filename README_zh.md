@@ -48,8 +48,9 @@
 <tr>
 <td></td>
 <td align="center"><b>Aider</b><br/>开源</td>
+<td align="center"><b>OpenCode</b><br/>开源</td>
 <td align="center"><b>Continue</b><br/>开源插件</td>
-<td align="center" colspan="2"><i>+ 任何能读写文件的工具</i></td>
+<td align="center"><i>+ 任何能读写<br/>文件的工具</i></td>
 </tr>
 </table>
 
