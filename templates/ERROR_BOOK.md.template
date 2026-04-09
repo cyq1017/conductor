@@ -1,0 +1,39 @@
+# AI Error Book — [Project Name]
+
+> Track AI mistakes to build trust calibration data over time.
+> Each entry is a data point for your Agent Trust Profile.
+
+## Error Log
+
+### YYYY-MM-DD
+
+#### E1: [Short description]
+- **Context**: What task was being performed
+- **Error**: What the AI did wrong
+- **Type**: `hallucination` | `premature-action` | `api-error` | `process-violation` | `wrong-assumption` | `data-loss-risk`
+- **Impact**: Low / Medium / High
+- **Lesson**: What rule or check prevents this in the future
+- **Action taken**: Added to CLAUDE.md / Fixed in code / None needed
+
+---
+
+## Error Type Definitions
+
+| Type | Description | Example |
+|------|-------------|---------|
+| `hallucination` | AI assumed something exists that doesn't | "Assumed obsidian CLI was installed" |
+| `premature-action` | Started doing before confirming with human | "Jumped to coding without plan approval" |
+| `api-error` | Used wrong API, wrong syntax, deprecated method | "Used transformers 4.x API on 5.x" |
+| `process-violation` | Broke agreed workflow rules | "Used write instead of edit on existing file" |
+| `wrong-assumption` | Made incorrect assumption about requirements | "Assumed user wanted Flask when they meant FastAPI" |
+| `data-loss-risk` | Action that could have caused data loss | "Didn't rsync results before releasing GPU server" |
+
+## Monthly Summary
+
+<!-- Review monthly. Extract patterns for Trust Profile. -->
+
+### Month: YYYY-MM
+- Total errors: X
+- Most common type: ____
+- Trend: improving / stable / degrading
+- Action: Updated CLAUDE.md rules? Updated Trust Profile?

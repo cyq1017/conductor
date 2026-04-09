@@ -1,0 +1,52 @@
+# Agent Trust Profile
+
+> Built from your AI Error Book data. Review and update monthly.
+> Helps you decide when to trust vs. verify.
+
+## [Agent Name] — e.g., Claude Code
+
+### Last Updated: YYYY-MM-DD
+### Data Points: X errors logged over Y sessions
+
+---
+
+### ✅ Reliable Areas
+<!-- Tasks where this agent consistently delivers quality results -->
+- 
+- 
+- 
+
+### ⚠️ Caution Areas
+<!-- Tasks where this agent sometimes makes mistakes — verify output -->
+- [area] — X errors logged, pattern: ____
+- 
+- 
+
+### ❌ Unreliable Areas
+<!-- Tasks where this agent frequently fails — always verify or use a different agent -->
+- [area] — X errors logged, pattern: ____
+- 
+
+---
+
+## Trust Decision Matrix
+
+| Task Type | Trust Level | Action |
+|-----------|-------------|--------|
+| [e.g., Code refactoring] | High | Let it run, spot-check result |
+| [e.g., API migration] | Low | Review line by line |
+| [e.g., Architecture decisions] | Medium | Get second opinion from another agent |
+
+---
+
+## Cross-Agent Comparison
+
+| Capability | Claude Code | Antigravity | Codex |
+|------------|-------------|-------------|-------|
+| Code quality | | | |
+| Architecture | | | |
+| Documentation | | | |
+| Debugging | | | |
+| Following instructions | | | |
+
+<!-- Fill in: ✅ reliable, ⚠️ caution, ❌ unreliable, ❓ insufficient data -->

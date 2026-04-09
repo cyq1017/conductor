@@ -1,0 +1,50 @@
+# Project Configuration for AI Agents
+
+> Paste this into your project's CLAUDE.md, AGENTS.md, or equivalent.
+
+## Task Startup Protocol
+
+When receiving a new task, do NOT start coding immediately. First evaluate and report:
+
+1. My understanding of the goal: ____
+2. Estimated files involved: ____
+3. Estimated time: ____
+4. Recommended task size: S / M / L
+5. Uncertainties: ____
+
+Wait for user confirmation before proceeding.
+
+### Task Size → Process Mapping
+
+| Size | Process |
+|------|---------|
+| **S** (< 30min, 1-2 files) | Do it → test → commit → HANDOFF |
+| **M** (1-3h, 3-5 files) | Brief plan → execute → commit → HANDOFF |
+| **L** (> 3h, cross-module) | Brainstorm → plan → TDD → review → HANDOFF |
+
+## Session Handoff Protocol
+
+### At Session Start
+1. Read `HANDOFF.md` — understand what happened last time
+2. Confirm understanding before starting work
+3. Check if there are central adjustments from the hub
+
+### At Session End (MANDATORY)
+1. Update `HANDOFF.md` with: done / blocked / decisions / pitfalls / next
+2. Keep it under 500 tokens — compress ruthlessly
+3. Record ALL negative decisions (what was tried and rejected, and why)
+4. Git commit all changes including HANDOFF.md
+
+## Error Tracking
+
+When you make a mistake:
+1. Acknowledge it immediately
+2. The human may log it in the AI Error Book — cooperate with this process
+3. Learn from it within this session (don't repeat the same error)
+
+## Key Rules
+
+- Do NOT start coding without confirming the task with the user
+- Do NOT skip HANDOFF.md at session end
+- Do NOT overwrite files when you should be editing (use patch/edit, not write)
+- Do NOT assume external tools are available — verify first
