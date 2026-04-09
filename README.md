@@ -23,7 +23,7 @@ Structured handoff · Trust calibration · Continuous improvement
 <td align="center"><b>Claude Code</b><br/>Anthropic</td>
 <td align="center"><b>Codex CLI</b><br/>OpenAI</td>
 <td align="center"><b>Gemini CLI</b><br/>Google</td>
-<td align="center"><b>Aider</b><br/>Open Source</td>
+<td align="center"><b>Kimi Code</b><br/>Moonshot AI</td>
 </tr>
 <tr>
 <td align="center"><b>🖥️ IDE</b></td>
@@ -34,7 +34,7 @@ Structured handoff · Trust calibration · Continuous improvement
 </tr>
 <tr>
 <td></td>
-<td align="center"><b>Kimi Code</b><br/>Moonshot AI</td>
+<td align="center"><b>Aider</b><br/>Open Source</td>
 <td align="center"><b>Continue</b><br/>Open Source</td>
 <td align="center" colspan="2"><i>+ any tool that reads/writes files</i></td>
 </tr>
