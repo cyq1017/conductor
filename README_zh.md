@@ -194,8 +194,6 @@ conductor status
 - [ ] v0.2 — `conductor digest` — 从对话日志自动提取决策/错误
 - [ ] v0.3 — Agent Retrospective — 结构化的 session 后复盘
 - [ ] v0.4 — 记忆系统 — 跨 session 的持久化知识库
-- [ ] v0.5 — 移动端通知（Telegram 集成）
-- [ ] v1.0 — 多人协作支持（团队工作流）
 
 ---
 

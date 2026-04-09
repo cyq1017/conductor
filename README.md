@@ -180,8 +180,6 @@ Not every task needs a full planning cycle:
 - [ ] v0.2 — `conductor digest` — extract decisions/errors from conversation logs
 - [ ] v0.3 — Agent Retrospective — structured post-session review
 - [ ] v0.4 — Memory system — persistent cross-session knowledge store
-- [ ] v0.5 — Mobile notifications (Telegram integration)
-- [ ] v1.0 — Multi-operator support for team workflows
 
 ## Philosophy
 
