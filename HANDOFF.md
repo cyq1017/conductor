@@ -1,30 +1,28 @@
 # HANDOFF
 
-## 2026-04-09
+## 2026-04-10
 
 ### Done
-- Conductor MVP 完成并上线 GitHub: https://github.com/cyq1017/conductor
-- 方法论 3 篇（handoff-protocol / trust-calibration / task-sizing）
-- 模板 4 个（HANDOFF / CLAUDE / ERROR_BOOK / TRUST_PROFILE）
-- CLI 2 命令（status / init），本机验证通过
-- README 英文 + 中文版，支持 11 个 AI coding agent（按 CLI/IDE 分类）
-- orbit 优化建议文档产出（orbit_optimization_feedback.md）
-- AGENTS.md 增加「工具选择规则」（从浏览器卡死踩坑中提炼）
+- v0.2: `conductor digest` — 从 HANDOFF/ERROR_BOOK/devlog 中提取决策、错误、完成项
+- v0.3: `conductor retro` — 交互式 agent 复盘，自动更新 ERROR_BOOK 和 TRUST_PROFILE
+- v0.4: `conductor memory` — 跨 session 知识存储（add/search/list/export/extract）
+- README 英文/中文版 Roadmap 标记 v0.1-v0.4 全部完成 ✅
+- Conductor 仓库加了 10 个 topics
+- GitHub Profile README 优化（About Me + Conductor 卡片 + Currently Exploring）
+- 讨论记录持久化：docs/discussion-notes.md, docs/future-projects.md
+- 版本升到 0.4.0（pyproject.toml + __init__.py）
 
 ### Decisions
-- 项目名定为 Conductor（交响乐指挥隐喻）
-- MVP 范围：方法论 + 模板 + CLI status 命令
-- Python 3.9+（兼容系统自带版本）
-- click + rich 做 CLI
-- 先在 github-profile/conductor 子目录开发，已 push 为独立仓库
+- v0.4 Memory System 用轻量 JSON 文件，不用向量数据库
+- 多人场景、Telegram、Agent Delegation Chain 确认为独立项目（不放 Conductor）
+- 8 个信任域：code_generation, debugging, architecture, testing, documentation, refactoring, devops, ui_frontend
 
 ### Pitfalls
-- 浏览器子代理验证 GitHub 页面卡死 18 分钟 → 已加规则：验证类任务用命令行
-- pyproject.toml 需要 `[tool.hatch.build.targets.wheel] packages = ["src/conductor"]`
-- click.version_option() 需要显式传 version 和 prog_name
+- Python 3.9 pip install -e . 需要 setuptools（老版本不支持 hatchling editable）
+- pyproject.toml 和 __init__.py 版本号要同步更新
 
 ### Next Steps
-1. 讨论 awesome-design-md 借鉴方向（A: 加 DESIGN.md 支持 / B: awesome-agent-rules 仓库 / C: README 排版优化）
-2. conductor 迁移为独立项目目录（脱离 github-profile 子目录）
-3. 配 PATH 让 conductor 命令全局可用
-4. 考虑 PyPI 发布
+1. GitHub 主页集中美化（活动动画、更多装饰）
+2. awesome-agent-rules 仓库启动
+3. PyPI 发布 conductor-ai
+4. 对 conductor 自身运行一次 `conductor retro` 验证流程
