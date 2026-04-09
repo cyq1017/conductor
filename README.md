@@ -7,9 +7,32 @@
 Structured handoff · Trust calibration · Continuous improvement
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Python 3.11+](https://img.shields.io/badge/python-3.11+-green.svg)](https://www.python.org)
+[![Python 3.9+](https://img.shields.io/badge/python-3.9+-green.svg)](https://www.python.org)
+
+**English** · [中文](README_zh.md)
 
 </div>
+
+---
+
+## Supported AI Coding Agents
+
+<table>
+<tr>
+<td align="center"><b>Claude Code</b><br/>Anthropic</td>
+<td align="center"><b>Cursor</b><br/>AI IDE</td>
+<td align="center"><b>GitHub Copilot</b><br/>Chat</td>
+<td align="center"><b>Codex CLI</b><br/>OpenAI</td>
+</tr>
+<tr>
+<td align="center"><b>Windsurf</b><br/>Codeium</td>
+<td align="center"><b>Antigravity</b><br/>Google DeepMind</td>
+<td align="center"><b>Aider</b><br/>Open Source CLI</td>
+<td align="center"><b>Continue</b><br/>Open Source Plugin</td>
+</tr>
+</table>
+
+> Conductor is file-protocol based — any AI coding tool that can read and write files is compatible.
 
 ---
 
