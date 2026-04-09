@@ -1,0 +1,156 @@
+# DESIGN.md Template
+
+> Drop this file in your project root. AI agents will read it and generate UI that matches your design system.
+> Inspired by [Google Stitch DESIGN.md format](https://stitch.withgoogle.com/docs/design-md/overview/).
+
+## Brand Identity
+
+- **App Name**: [Your App Name]
+- **Tagline**: [One-line description]
+- **Personality**: [e.g., Professional but friendly, Technical but approachable]
+
+## Colors
+
+### Light Mode
+| Token | Value | Usage |
+|-------|-------|-------|
+| `--color-primary` | `#` | Main brand color, CTAs |
+| `--color-primary-hover` | `#` | Hover state for primary |
+| `--color-secondary` | `#` | Supporting elements |
+| `--color-background` | `#ffffff` | Page background |
+| `--color-surface` | `#f8f9fa` | Card/panel backgrounds |
+| `--color-text-primary` | `#1a1a1a` | Main text |
+| `--color-text-secondary` | `#6b7280` | Secondary text |
+| `--color-border` | `#e5e7eb` | Borders and dividers |
+| `--color-success` | `#10b981` | Success states |
+| `--color-warning` | `#f59e0b` | Warning states |
+| `--color-error` | `#ef4444` | Error states |
+
+### Dark Mode
+| Token | Value | Usage |
+|-------|-------|-------|
+| `--color-background` | `#0a0a0a` | Page background |
+| `--color-surface` | `#1a1a1a` | Card/panel backgrounds |
+| `--color-text-primary` | `#fafafa` | Main text |
+| `--color-text-secondary` | `#a1a1aa` | Secondary text |
+| `--color-border` | `#27272a` | Borders and dividers |
+
+## Typography
+
+| Token | Value |
+|-------|-------|
+| `--font-family-sans` | `'Inter', system-ui, sans-serif` |
+| `--font-family-mono` | `'JetBrains Mono', 'Fira Code', monospace` |
+| `--font-size-xs` | `0.75rem` |
+| `--font-size-sm` | `0.875rem` |
+| `--font-size-base` | `1rem` |
+| `--font-size-lg` | `1.125rem` |
+| `--font-size-xl` | `1.25rem` |
+| `--font-size-2xl` | `1.5rem` |
+| `--font-size-3xl` | `2rem` |
+| `--font-weight-normal` | `400` |
+| `--font-weight-medium` | `500` |
+| `--font-weight-semibold` | `600` |
+| `--font-weight-bold` | `700` |
+
+## Spacing
+
+| Token | Value |
+|-------|-------|
+| `--space-1` | `0.25rem` |
+| `--space-2` | `0.5rem` |
+| `--space-3` | `0.75rem` |
+| `--space-4` | `1rem` |
+| `--space-6` | `1.5rem` |
+| `--space-8` | `2rem` |
+| `--space-12` | `3rem` |
+| `--space-16` | `4rem` |
+
+## Border Radius
+
+| Token | Value |
+|-------|-------|
+| `--radius-sm` | `0.25rem` |
+| `--radius-md` | `0.5rem` |
+| `--radius-lg` | `0.75rem` |
+| `--radius-xl` | `1rem` |
+| `--radius-full` | `9999px` |
+
+## Components
+
+### Buttons
+
+```css
+/* Primary Button */
+background: var(--color-primary);
+color: white;
+padding: var(--space-2) var(--space-4);
+border-radius: var(--radius-md);
+font-weight: var(--font-weight-medium);
+transition: all 0.15s ease;
+
+/* Hover: slightly darker, subtle shadow */
+/* Disabled: opacity 0.5, cursor not-allowed */
+```
+
+### Cards
+
+```css
+background: var(--color-surface);
+border: 1px solid var(--color-border);
+border-radius: var(--radius-lg);
+padding: var(--space-6);
+/* Optional: subtle shadow for elevation */
+```
+
+### Inputs
+
+```css
+background: var(--color-background);
+border: 1px solid var(--color-border);
+border-radius: var(--radius-md);
+padding: var(--space-2) var(--space-3);
+font-size: var(--font-size-base);
+/* Focus: border-color var(--color-primary), subtle ring */
+```
+
+## Layout
+
+- **Max content width**: `1200px`
+- **Page padding**: `var(--space-4)` mobile, `var(--space-8)` desktop
+- **Grid**: CSS Grid or Flexbox, 12-column on desktop
+- **Breakpoints**: `640px` (sm), `768px` (md), `1024px` (lg), `1280px` (xl)
+
+## Animations
+
+```css
+/* Preferred transitions */
+--transition-fast: 0.15s ease;
+--transition-normal: 0.2s ease;
+--transition-slow: 0.3s ease;
+
+/* Prefer subtle transforms over flashy animations */
+/* Hover: translateY(-1px) + shadow increase */
+/* Focus: ring animation */
+/* Page transitions: fade-in 0.2s */
+```
+
+## Iconography
+
+- **Style**: [e.g., Outlined, 1.5px stroke / Filled / Duotone]
+- **Size**: `20px` default, `16px` small, `24px` large
+- **Library**: [e.g., Lucide, Heroicons, Phosphor]
+
+## Do / Don't
+
+### Do ✅
+- Use consistent spacing tokens
+- Maintain high contrast ratios (WCAG AA minimum)
+- Use semantic color tokens, not raw hex values
+- Keep animations subtle and purposeful
+
+### Don't ❌
+- Don't use more than 2 font families
+- Don't mix border-radius styles (pick rounded or sharp, stick with it)
+- Don't use pure black (#000) for text (use #1a1a1a or similar)
+- Don't add animation just for decoration

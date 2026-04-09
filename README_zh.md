@@ -91,6 +91,7 @@
 | [`CLAUDE.md`](templates/CLAUDE.md.template) | Agent 行为规则（含交接协议和任务启动协议） |
 | [`ERROR_BOOK.md`](templates/ERROR_BOOK.md.template) | AI 错题本 — 追踪 AI 犯的错 |
 | [`TRUST_PROFILE.md`](templates/TRUST_PROFILE.md.template) | Agent 信任画像 — 各领域可靠度评分 |
+| [`DESIGN.md`](templates/DESIGN.md.template) | UI 设计系统 — 统一 agent 产出的界面风格 |
 
 ---
 
@@ -193,6 +194,8 @@ conductor status
 - [ ] v0.2 — `conductor digest` — 从对话日志自动提取决策/错误
 - [ ] v0.3 — Agent Retrospective — 结构化的 session 后复盘
 - [ ] v0.4 — 记忆系统 — 跨 session 的持久化知识库
+- [ ] v0.5 — 移动端通知（Telegram 集成）
+- [ ] v1.0 — 多人协作支持（团队工作流）
 
 ---
 

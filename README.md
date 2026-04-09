@@ -87,6 +87,7 @@ Read more: [docs/](docs/)
 | [`CLAUDE.md`](templates/CLAUDE.md.template) | Agent rules with handoff protocol |
 | [`ERROR_BOOK.md`](templates/ERROR_BOOK.md.template) | AI mistake tracker for trust calibration |
 | [`TRUST_PROFILE.md`](templates/TRUST_PROFILE.md.template) | Agent reliability scorecard |
+| [`DESIGN.md`](templates/DESIGN.md.template) | UI design system for consistent agent output |
 
 ### 🧰 CLI — See all your projects at a glance
 
@@ -179,6 +180,8 @@ Not every task needs a full planning cycle:
 - [ ] v0.2 — `conductor digest` — extract decisions/errors from conversation logs
 - [ ] v0.3 — Agent Retrospective — structured post-session review
 - [ ] v0.4 — Memory system — persistent cross-session knowledge store
+- [ ] v0.5 — Mobile notifications (Telegram integration)
+- [ ] v1.0 — Multi-operator support for team workflows
 
 ## Philosophy
 
