@@ -27,8 +27,13 @@ Structured handoff · Trust calibration · Continuous improvement
 <tr>
 <td align="center"><b>Windsurf</b><br/>Codeium</td>
 <td align="center"><b>Antigravity</b><br/>Google DeepMind</td>
+<td align="center"><b>Gemini CLI</b><br/>Google</td>
+<td align="center"><b>Kimi Code</b><br/>Moonshot AI</td>
+</tr>
+<tr>
 <td align="center"><b>Aider</b><br/>Open Source CLI</td>
 <td align="center"><b>Continue</b><br/>Open Source Plugin</td>
+<td align="center" colspan="2"><i>+ any tool that reads/writes files</i></td>
 </tr>
 </table>
 

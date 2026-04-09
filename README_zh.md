@@ -40,8 +40,13 @@
 <tr>
 <td align="center"><b>Windsurf</b><br/>Codeium</td>
 <td align="center"><b>Antigravity</b><br/>Google DeepMind</td>
+<td align="center"><b>Gemini CLI</b><br/>Google</td>
+<td align="center"><b>Kimi Code</b><br/>Moonshot AI</td>
+</tr>
+<tr>
 <td align="center"><b>Aider</b><br/>开源 CLI</td>
 <td align="center"><b>Continue</b><br/>开源插件</td>
+<td align="center" colspan="2"><i>+ 任何能读写文件的工具</i></td>
 </tr>
 </table>
 
